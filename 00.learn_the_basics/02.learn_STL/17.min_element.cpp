@@ -10,5 +10,5 @@ int main(){
         cout<<v[i]<<" ";
     
     cout<<endl;
-    cout<<"The maximum element is: "<<*max_element(v.begin(),v.end());
+    cout<<"The minimum element is: "<<*min_element(v.begin(),v.end());
 }
