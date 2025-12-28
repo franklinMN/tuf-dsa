@@ -7,16 +7,18 @@ using std::string;
 using std::endl;
 using std::unordered_map;
 
-void calcFreq(const int* arr, int len, unordered_map<int, int>& m){
+using umapii = unordered_map<int, int>;
+
+void calcFreq(const int* arr, int len, umapii& m){
     for(int i=0 ; i<len ; i++) m[arr[i]] += 1;
 }
 
-void printM(const unordered_map<int, int>& m){
+void printM(const umapii& m){
     for(auto it:m) cout << "{" << it.first << ", " << it.second << "}\n";
     cout << endl;
 }
 
-void findHigHLowFreq( const unordered_map<int, int>& m, int* h, int* l){
+void findHigHLowFreq( const umapii& m, int* h, int* l){
     if (m.empty()) {
         *h = *l = 0;
         return;
@@ -33,7 +35,7 @@ int main(){
     
     int testcases[] = {10,5,10,15,10,5};
     int N = sizeof(testcases) / sizeof(testcases[0]);
-    unordered_map<int, int> m;
+    umapii m;
     calcFreq(testcases, N,  m);
     printM(m);
 

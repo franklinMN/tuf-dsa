@@ -16,30 +16,12 @@ void printM(const unordered_map<int, int>& m){
     cout << endl;
 }
 
-void findHigHLowFreq( const unordered_map<int, int>& m, int* h, int* l){
-    if (m.empty()) {
-        *h = *l = 0;
-        return;
-    }
-    *h = m.begin()->second;
-    *l = m.begin()->second;
-    for(auto it:m){
-        if(it.second > *h) *h = it.second;
-        if(it.second < *l) *l = it.second;
-    }
-}
-
 int main(){
     
-    int testcases[] = {10,5,10,15,10,5};
+    int testcases[] = {5, 0, 1, 10, -5, 1, 1, 1, 5, 0, 0, 9};
     int N = sizeof(testcases) / sizeof(testcases[0]);
     unordered_map<int, int> m;
     calcFreq(testcases, N,  m);
     printM(m);
-
-    int highF;
-    int lowF;
-    findHigHLowFreq(m, &highF, &lowF);
-    cout  << lowF << "  " << highF << "\n";
     return 0;
 }
